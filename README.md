@@ -1,6 +1,6 @@
 # SCADDTA: Spherical Concept-Aligned Dynamics for Robust and Interpretable Drug-Target Affinity Prediction with Adaptive Multi-Modal Fusion
 
-![Local Image](./SCADDTA.jpg "Local Image Example")
+![Local Image](./SCADDTA.jpg "")
 The SCAD-DTA framework predicts drug-target affinity through four stages: (1) Multi-modal Embedding of graphs, sequences, and fingerprints; (2) Feature Encoding into latent representations; (3) Triple Fusion using AMMFusion (weighting), SCPFusion (geometric alignment), and Concept Alignment (semantic bridging); and (4) Affinity Prediction generating regressed scores and interpretable ConceptMaps.
 
 ## Contribution
