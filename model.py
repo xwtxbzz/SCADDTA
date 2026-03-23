@@ -200,10 +200,9 @@ class ConceptAlignmentModule(nn.Module):
         return weighted_activations, concept_activation
 
 
-class SimpleNet(torch.nn.Module):
+class SimpleCNN(torch.nn.Module):
     def __init__(self, num_features=1024, output_dim=64, dropout=0.1,embed = False,drug = False):
-        super(SimpleNet, self).__init__()
-        print('SimpleNet Loaded')
+        super(SimpleCNN, self).__init__()
         self.em = embed
         self.one = nn.Sequential(nn.Conv1d(num_features, output_dim, 1),nn.ReLU(),nn.Dropout(dropout))
         self.three = nn.Sequential(nn.Conv1d(num_features, output_dim, 3,padding=1),nn.ReLU(),nn.Dropout(dropout))
@@ -249,10 +248,10 @@ class SCADDTA(nn.Module):
         self.pro_fc_g1 = nn.Linear(num_features_pro * 4, 256)
         self.pro_fc_g2 = nn.Linear(256, output_dim)
         
-        self.sm = SimpleNet(embed=True, num_features=1024, output_dim=output_dim)
-        self.se = SimpleNet(embed=True, num_features=1024, output_dim=output_dim)
-        self.q = SimpleNet(num_features=1024, output_dim=output_dim)
-        self.d = SimpleNet(num_features=1024, output_dim=output_dim)
+        self.sm = SimpleCNN(embed=True, num_features=1024, output_dim=output_dim)
+        self.se = SimpleCNN(embed=True, num_features=1024, output_dim=output_dim)
+        self.q = SimpleCNN(num_features=1024, output_dim=output_dim)
+        self.d = SimpleCNN(num_features=1024, output_dim=output_dim)
         
         self.f1 = nn.Linear(1024, output_dim)  # e3fp
         self.f2 = nn.Linear(315, output_dim)   # ergfp
